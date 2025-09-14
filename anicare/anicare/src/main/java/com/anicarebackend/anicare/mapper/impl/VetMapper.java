@@ -17,7 +17,7 @@ public class VetMapper implements Mapper<Veterinarian, VetDto> {
       return Veterinarian.builder()
       .id(dto.getId())
       .name(dto.getName())
-      .speciality(dto.getSpecialization())
+      .specialization(dto.getSpecialization())
       .email(dto.getEmail())
       .build();
     }
@@ -30,7 +30,7 @@ public class VetMapper implements Mapper<Veterinarian, VetDto> {
         return VetDto.builder()
         .Id(entity.getId())
         .name(entity.getName())
-        .specialization(entity.getSpeciality())
+        .specialization(entity.getSpecialization())
         .email(entity.getEmail())
         .build();
     }

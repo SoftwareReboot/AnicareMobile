@@ -21,28 +21,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "Pets")
+@Table(name = "pets")
 public class Pet {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "Pet_Id", nullable = false, updatable = false)
+    @Column(name = "pet_id", nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "Name", nullable = false, updatable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "Type", nullable = false, updatable = false)
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name = "Breed", nullable = false, updatable = false)
+    @Column(name = "breed", nullable = false)
     private String breed;
 
-    @Column(name = "Age", nullable = false, updatable = false)
+    @Column(name = "age", nullable = false)
     private int age;
 
     @ManyToOne
-    @JoinColumn(name = "owner_Id", nullable = false)
-    private User owner;
-    //many pets can have the same owner ang logic ani
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;  
+    // 👆 This makes it clear: each Pet belongs to ONE User (owner).
 }

@@ -20,24 +20,24 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "vet")
+@Table(name = "veterinarians")
 @Builder
 public class Veterinarian {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "VetId", nullable = false, updatable = false)
+    @Column(name = "vet_id", nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "Name", nullable = false, updatable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "Specialization", nullable = false, updatable = false)
-    private String speciality;
+    @Column(name = "specialization", nullable = false)
+    private String specialization;
 
-    @Column(name = "Email", nullable = false, updatable = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
-     @OneToMany(mappedBy = "vet", cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true) //vets can have many appointments
+    @OneToMany(mappedBy = "veterinarian", cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true)
     private List<Appointment> appointments;
 }

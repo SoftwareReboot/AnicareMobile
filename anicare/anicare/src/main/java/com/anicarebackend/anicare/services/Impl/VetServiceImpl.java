@@ -50,7 +50,7 @@ public class VetServiceImpl implements VeterinarianService{
 
         existingVet.setName(dto.getName());
         existingVet.setEmail(dto.getEmail());
-        existingVet.setSpeciality(dto.getSpecialization());
+        existingVet.setSpecialization(dto.getSpecialization());
         
         Veterinarian updatedVet = vetRepo.save(existingVet);
         return vetMapper.toDto(updatedVet);

@@ -20,24 +20,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")//try to build more secure user based application
 @Builder
+@Table(name = "users")
 public class User {
     
     @Id
-    @GeneratedValue(strategy =GenerationType.UUID)
-    @Column(name = "User_Id", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "user_id", nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "Username", nullable = false, updatable = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "Password", nullable = false, updatable = true)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "Email", nullable = false, updatable = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "owner", cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true) //users or owners can have many pets
+    @OneToMany(mappedBy = "owner", cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 }

@@ -22,26 +22,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "Appointments")
+@Table(name = "appointments")
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "Appointment_id", nullable = false, updatable = false)
+    @Column(name = "appointment_id", nullable = false, updatable = false)
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "Pet_Id", nullable = false)
-    private Pet petId;
+    @JoinColumn(name = "pet_id", nullable = false)
+    private Pet pet;   // 👈 Renamed from petId → pet (represents the whole Pet object)
 
     @ManyToOne
-    @JoinColumn(name = "Vet_Id", nullable = false)
-    private Veterinarian vetId;
+    @JoinColumn(name = "vet_id", nullable = false)
+    private Veterinarian veterinarian; // 👈 Renamed from vetId → veterinarian
 
-    @Column(name = "Reason", nullable = false, updatable = false)
+    @Column(name = "reason", nullable = false)
     private String reason;
 
-    @Column(name = "Status", nullable = false, updatable = true)
+    @Column(name = "status", nullable = false)
     private String status;
 
     @Column(name = "date", nullable = false)

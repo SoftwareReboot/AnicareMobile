@@ -32,8 +32,8 @@ public class AppointmentMapper implements Mapper<Appointment, AppointmentDto> {
         .date(entity.getDate())
         .reason(entity.getReason())
         .status(entity.getStatus())
-        .petId(entity.getPetId().getId())
-        .vetId(entity.getVetId().getId())
+        .petId(entity.getPet().getId())
+        .vetId(entity.getVeterinarian().getId())
         .build();
     }
     
