@@ -20,23 +20,6 @@ This is the **User-side MVP** version, where users can register, manage pets, an
   - Book appointments with vets (linked to pets & users)  
   - View all appointments for a user, pet, or vet  
   - Update or cancel appointments
-
-    
----
-
-## 📂 Project Structure
-├── src/main/java/com/anicarebackend/anicare/
-│ ├── controller/ # REST controllers (User, Pet, Appointment)
-│ ├── domain/ # Entities & DTOs
-│ ├── exceptions/ # Custom exception handling
-│ ├── mapper/ # Entity ↔ DTO mappers
-│ ├── repo/ # Spring Data JPA repositories
-│ └── services/ # Service layer interfaces & implementations
-└── src/main/resources/
-├── application.properties
-
----
-
 ---
 
 ## ⚡ API Endpoints (MVP)
